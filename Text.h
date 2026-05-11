@@ -12,7 +12,7 @@ private:
     Font font;
 
 public:
-    Text(Point p = {0, 0}, std::string m = "", Font f = Font());
+    Text(const Point p = {0, 0}, const std::string m = "", const Font f = Font());
 
     void setFont(const Font& f) { font = f; }
     std::string ToString() const override;
