@@ -10,7 +10,7 @@ private:
 
 public:
 
-    Pyramid(Point3D p1, Point3D p2, Point3D p3, Point3D top);
+    Pyramid(const Point3D& p1, const Point3D& p2, const Point3D& p3, const Point3D& top);
     double getHeight() const;
     double getLateralArea() const;
 };

@@ -3,7 +3,7 @@
 #include "point3d.h"
 #include "pyramid.h"
 
-double getValue(std::string prompt)
+double getValue(const std::string& prompt)
 {
     std::cout << prompt << std::flush;
     double value;

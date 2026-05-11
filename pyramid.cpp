@@ -2,7 +2,7 @@
 #include <cmath>
 #include <iostream>
 
-Pyramid::Pyramid(Point3D p1, Point3D p2, Point3D p3, Point3D top) : p1(p1), p2(p2), p3(p3), top(top) 
+Pyramid::Pyramid(const Point3D& p1, const Point3D& p2, const Point3D& p3, const Point3D& top) : p1(p1), p2(p2), p3(p3), top(top) 
 {
     if (p1.distanceTo(p2) == 0 || p2.distanceTo(p3) == 0) {
         std::cout << "\nGeometry Error: Base points cannot coincide!" << std::endl;
