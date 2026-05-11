@@ -8,7 +8,8 @@ class Color
 public:
     uint8_t red, green, blue;
 
-    Color(int r = 0, int g = 0, int b = 0) {
+    Color(const int r = 0, const int g = 0, const int b = 0) 
+    {
         if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) 
         {
             throw std::out_of_range("Color values must be between 0 and 255");
