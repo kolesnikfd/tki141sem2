@@ -9,7 +9,7 @@ public:
     Color color;
     int size;
 
-    Font(std::string n = "Arial", Color c = Color(0, 0, 0), int s = 12)
+    Font(const std::string n = "Arial", const Color c = Color(0, 0, 0), const int s = 12)
         : name(n), color(c), size(s) {}
 
     friend std::ostream& operator<<(std::ostream& os, const Font& f) 
