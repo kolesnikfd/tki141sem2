@@ -1,7 +1,7 @@
 #include "Text.h"
 #include <sstream>
 
-Text::Text(Point p, std::string m, Font f) : location(p), message(m), font(f) {}
+Text::Text(const Point p, const std::string m, const Font f) : location(p), message(m), font(f) {}
 
 std::string Text::ToString() const 
 {
