@@ -1,6 +1,10 @@
 #include <iostream>
 #include "Text.h"
 
+/**
+ * @brief Точка входа в программу.
+ * @return 0, если программа завершилась корректно.
+ */
 int main() 
 {
     try 
