@@ -9,9 +9,9 @@ using namespace std;
  */
 enum Actions
 {
-    INSERT = 1, /**< Вставка элемента */
-    REMOVE,     /**< Удаление элемента */
-    SEARCH      /**< Поиск элемента */
+    INSERT = 1,
+    REMOVE,     
+    SEARCH      
 };
 
 /**
