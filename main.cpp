@@ -3,37 +3,33 @@
 #include <cstdlib>
 #include "vector.h"
 using namespace std;
+
 /**
- * @brief Нумерация объектов выбора
+ * @brief Нумерация объектов выбора (действия пользователя в меню)
  */
 enum Actions
-{INSERT = 1,REMOVE,SEARCH};
-/**
- * @brief Выводит ошибку и завершает работу программы
- * @param text - текст, выводимый на экран
- */
-void ERROR(const string text)
 {
-    cerr << text << endl;
-    exit(1);
-}
+    INSERT = 1, /**< Вставка элемента */
+    REMOVE,     /**< Удаление элемента */
+    SEARCH      /**< Поиск элемента */
+};
+
 /**
- * @brief Считывает значение, введенное с клавиатуры
- * @return считанное значение
+ * @brief Выводит текст ошибки в поток ошибок и аварийно завершает работу программы
+ * @param Текст ошибки, выводимый на экран
  */
-int get_choice()
-{
-    int number = 0;
-    cin >> number;
-    if (cin.fail())
-    {
-        ERROR("Input error");
-    }
-    return number;
-}
+void ERROR(const string text);
+
 /**
- * @brief Точка входа в программу
- * @return Если программа выполнена корректно - 0, иначе 1
+ * @brief Считывает целочисленное значение, введенное с клавиатуры, с валидацией ввода
+ * @return Считанное корректное целочисленное значение
+ */
+int get_choice();
+
+/**
+ * @brief Точка входа в программу.
+ * * Позволяет пользователю интерактивно управлять динамическим вектором через консоль: задавать начальный размер, добавлять элементы, удалять их и искать по значению.
+ * * @return 0, если программа выполнена корректно
  */
 int main()
 {
@@ -53,20 +49,18 @@ int main()
             collection.insertAt(collection.get_size(), val);
         }
     }
-    cout << "Primordial vector: " << collection << endl;
-    cout << "Select an action with a vector: " << endl
-         << INSERT << " - Insert element" << endl
-         << REMOVE << " - Remove element" << endl
-         << SEARCH << " - Find element" << endl;
-    cout << "Your choice: ";
-    int choice = get_choice();
+
+    cout << "Current vector: " << collection << endl;
+    cout << "Select an action (1 - Insert, 2 - Remove, 3 - Search): ";
+    int action = get_choice();
+
     try
     {
-        switch (choice)
+        switch (action)
         {
         case INSERT:
         {
-            cout << "Enter index to insert: ";
+            cout << "Enter index to add: ";
             int raw_index = get_choice();
             if (raw_index < 0)
                 ERROR("Error: index cannot be negative.");
@@ -109,10 +103,29 @@ int main()
     {
         cout << "Error! " << e.what() << endl;
     }
+
     if (!collection.is_empty())
     {
         cout << endl
              << "The first element is: " << collection[0] << endl;
     }
+
     return 0;
+}
+
+void ERROR(const string text)
+{
+    cerr << text << endl;
+    exit(1);
+}
+
+int get_choice()
+{
+    int number = 0;
+    cin >> number;
+    if (cin.fail())
+    {
+        ERROR("Input error");
+    }
+    return number;
 }
